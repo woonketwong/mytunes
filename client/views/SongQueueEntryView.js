@@ -8,7 +8,6 @@ var SongQueueEntryView = Backbone.View.extend({
   },
 
   render: function(){
-    // console.log(this.model);
     $(this.el).html(this.model.get("title") + ", " + this.model.get("artist"));
     return this;
   }

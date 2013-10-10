@@ -6,7 +6,9 @@
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/normalize-css/normalize.css"></script>
 
+    <link rel="stylesheet" href="styles/styles.css">
     <script src="data/data.js"></script>
 
     <script src="models/Song.js"></script>
@@ -16,22 +18,23 @@
 
     <script src="views/PlayerView.js"></script>
     <script src="views/SongQueueView.js"></script>
+    <script src="views/SongQueueEntryView.js"></script>
     <script src="views/LibraryView.js"></script>
     <script src="views/LibraryEntryView.js"></script>
     <script src="views/AppView.js"></script>
 
     <script>
       $(function(){
-        // set up model objects
         var library = new Songs(songData);
         var app = new App({library: library});
-
-        // build a view for the top level of the whole app
         var appView = new AppView({model: app});
 
-        // put the view onto the screen
-        $('body').append(appView.render());
+        $('#container').append(appView.render());
       });
     </script>
+    <header>Your Moving A$$</header>
+    <section id="container">
+      <div id="playList"></div>
+    </section>
   </body>
 </html>

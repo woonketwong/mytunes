@@ -23,7 +23,6 @@ describe('SongQueue', function() {
     describe('when it is the only song in the song queue', function() {
       it('plays it', function() {
         var songQueue = new SongQueue();
-        console.log("here is test section before add");
         songQueue.add(songData1);
         expect(playSpy).toHaveBeenCalled();
       });
@@ -43,7 +42,6 @@ describe('SongQueue', function() {
       var songQueue = new SongQueue([songData1, songData2]);
       song2 = songQueue.at(1);
       expect(songQueue.length).toEqual(2);
-      console.log("songQueue at 0 ", songQueue.at(0));
       songQueue.at(0).trigger('ended');
       expect(songQueue.length).toEqual(1);
       expect(songQueue.at(0)).toEqual(song2);

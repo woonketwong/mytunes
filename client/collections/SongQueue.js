@@ -2,13 +2,12 @@
 var SongQueue = Songs.extend({
 
   initialize: function(params){
-    this.on('add', this.addModelController);
-    this.on('ended', this.endedModelController);
-    this.on('remove', this.removeModelController);
+    this.on('add', this.addModelController, this);
+    this.on('ended', this.endedModelController, this);
   },
 
   playFirst: function(){
-    // this.models.at(0).play();
+    this.at(0).play();
   },
 
   addModelController: function(){
@@ -18,19 +17,11 @@ var SongQueue = Songs.extend({
   },
 
   endedModelController: function(){
-    console.log("We are ended !!!!");
-    console.log(this);
     this.remove(this.models[0]);
     if( this.models.length > 0){
       this.playFirst();
     }
-    // call playFirst
-  },
-  removeModelController: function(params){
-    console.log("We are removed !!!!", params);
-    // this.remove();
   }
-
 
 
 });

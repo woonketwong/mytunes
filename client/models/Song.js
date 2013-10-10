@@ -9,7 +9,7 @@ var Song = Backbone.Model.extend({
     this.trigger('ended', this);
   },
   dequeue: function(){
-    this.trigger('remove', this);
+    this.collection.remove(this);
   }
 
 
